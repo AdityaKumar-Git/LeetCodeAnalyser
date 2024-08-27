@@ -20,7 +20,7 @@ const Analyzer = () => {
   };
 
   useEffect(() => {
-    // fetchAndSet();
+    fetchAndSet();
   }, [userID]);
 
 const fetchAndSet = () => {
