@@ -337,17 +337,24 @@ const Analyzer = () => {
       {!rateLimitExceeded && !isInvalidFetch && userID && !isLoading && (
         <div className="w-full max-w-5xl bg-white p-6 mt-6 rounded-lg shadow-md">
           {/* User Profile Header */}
-          <div className="flex justify-between items-center mb-6 border-b pb-4">
-            <div className="flex items-center">
-              <img src={basicDetail.avatar} alt="User Avatar" className="w-24 h-24 rounded-full object-cover mr-4" />
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b pb-4 gap-4">
+            {/* Left section: Avatar + Info */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <img
+                src={basicDetail.avatar}
+                alt="User Avatar"
+                className="w-24 h-24 rounded-full object-cover"
+              />
               <div>
                 <h2 className="text-2xl font-bold">{userID}</h2>
-                <p className="text-gray-600">{basicDetail.name !== 'Not Added' ? basicDetail.name : ''}</p>
-                <div className="flex items-center mt-2">
-                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded mr-2">
+                <p className="text-gray-600">
+                  {basicDetail.name !== 'Not Added' ? basicDetail.name : ''}
+                </p>
+                <div className="flex flex-wrap items-center mt-2 gap-2">
+                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
                     Rank: {basicDetail.ranking}
                   </span>
-                  <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded mr-2">
+                  <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
                     Points: {basicDetail.contributionPoints}
                   </span>
                   <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">
@@ -356,8 +363,10 @@ const Analyzer = () => {
                 </div>
               </div>
             </div>
-            <div className="text-right">
-              <div className="bg-green-100 text-green-800 text-xl font-medium px-3 py-1 rounded">
+
+            {/* Right section: Stats */}
+            <div className="sm:text-right">
+              <div className="bg-green-100 text-green-800 text-lg sm:text-xl font-medium px-3 py-1 rounded w-fit sm:ml-auto">
                 {solvedStats.total} / {solvedStats.totalQuestions} Solved
               </div>
               <p className="text-gray-600 mt-1">
@@ -367,12 +376,12 @@ const Analyzer = () => {
           </div>
 
           {/* Tabs */}
-          <div className="border-b border-gray-200 mb-6">
-            <ul className="flex flex-wrap -mb-px">
-              <li className="mr-2">
+          <div className="border-b border-gray-200 mb-6 overflow-x-auto">
+            <ul className="flex flex-nowrap justify-center sm:justify-start -mb-px space-x-2 px-2 sm:px-0">
+              <li>
                 <button
                   onClick={() => setActiveTab('overview')}
-                  className={`inline-block p-4 ${
+                  className={`whitespace-nowrap text-sm sm:text-base inline-block p-2 sm:p-4 ${
                     activeTab === 'overview'
                       ? 'text-blue-600 border-b-2 border-blue-600'
                       : 'text-gray-500 hover:text-gray-600 hover:border-gray-300'
@@ -381,10 +390,10 @@ const Analyzer = () => {
                   Overview
                 </button>
               </li>
-              <li className="mr-2">
+              <li>
                 <button
                   onClick={() => setActiveTab('submissions')}
-                  className={`inline-block p-4 ${
+                  className={`whitespace-nowrap text-sm sm:text-base inline-block p-2 sm:p-4 ${
                     activeTab === 'submissions'
                       ? 'text-blue-600 border-b-2 border-blue-600'
                       : 'text-gray-500 hover:text-gray-600 hover:border-gray-300'
@@ -393,10 +402,10 @@ const Analyzer = () => {
                   Recent Submissions
                 </button>
               </li>
-              <li className="mr-2">
+              <li>
                 <button
                   onClick={() => setActiveTab('contests')}
-                  className={`inline-block p-4 ${
+                  className={`whitespace-nowrap text-sm sm:text-base inline-block p-2 sm:p-4 ${
                     activeTab === 'contests'
                       ? 'text-blue-600 border-b-2 border-blue-600'
                       : 'text-gray-500 hover:text-gray-600 hover:border-gray-300'
@@ -405,10 +414,10 @@ const Analyzer = () => {
                   Contests
                 </button>
               </li>
-              <li className="mr-2">
+              <li>
                 <button
                   onClick={() => setActiveTab('skills')}
-                  className={`inline-block p-4 ${
+                  className={`whitespace-nowrap text-sm sm:text-base inline-block p-2 sm:p-4 ${
                     activeTab === 'skills'
                       ? 'text-blue-600 border-b-2 border-blue-600'
                       : 'text-gray-500 hover:text-gray-600 hover:border-gray-300'
