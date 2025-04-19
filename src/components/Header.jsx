@@ -12,7 +12,9 @@ function Header() {
   return (
     <>
       <div className='bg-zinc-800 min-h-16 flex justify-between px-4 items-center'>
-        <div className='text-center font-serif text-white'> LCAnalyser</div>
+        <a href='/' className='no-underline'>
+          <div className='text-center font-serif text-white'> LCAnalyser</div>
+        </a>
         <div className='block lg:hidden'>
           <button onClick={toggleMenu} className='text-white'>
             <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
