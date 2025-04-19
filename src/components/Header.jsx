@@ -13,7 +13,7 @@ function Header() {
     <>
       <div className='bg-zinc-800 min-h-16 flex justify-between px-4 items-center'>
         <a href='/' className='no-underline'>
-          <div className='text-center font-serif text-white'> LCAnalyser</div>
+          <div className='text-center font-serif text-white'> <img src='logo.png' className='w-10 inline bg-zinc-800'></img> LCAnalyser</div>
         </a>
         <div className='block lg:hidden'>
           <button onClick={toggleMenu} className='text-white'>
